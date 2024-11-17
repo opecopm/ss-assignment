@@ -1,0 +1,20 @@
+services:
+  product-service:
+    build:
+      context: ./product-service  # Path to the product service folder
+    ports:
+      - "5001:5001"  # Map product service to host
+    networks:
+      - app-network
+
+  order-service:
+    build:
+      context: ./order-service  # Path to the order service folder
+    ports:
+      - "5002:5002"  # Map order service to host
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
